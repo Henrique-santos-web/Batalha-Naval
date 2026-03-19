@@ -19,10 +19,6 @@ programa
 		limpa()			
        	menu()
 		}
-//////TIROS////////
-	funcao tiros(){
-		
-	}
 //////MENU E JOGO//
 	funcao menu(){
 
@@ -31,6 +27,7 @@ programa
         inteiro i, j
         inteiro numero
         inteiro sorteio_l,sorteio_c,sorteio_l2,sorteio_c2,sorteio_l3,sorteio_c3
+        inteiro tiros = 5
        
         sorteio_l = u.sorteia(0, 3)
 	   sorteio_c = u.sorteia(0, 3)
@@ -68,6 +65,9 @@ programa
 			}
 			escreva("\n")
 			}
+		
+	   se(tiros > 0){	
+	   	escreva("voce tem ",tiros," tiros\n")
         escreva("Digite a linha do tiro (0 a 3): ")
         leia(linha)
         
@@ -82,9 +82,6 @@ programa
         leia(linha)
         	}enquanto(linha > 3)
         }
-        	
-       
-
         escreva("Digite a coluna do tiro (0 a 3): ")
         leia(coluna)
         
@@ -116,12 +113,19 @@ programa
         se (matriz[linha][coluna] == 'X')
         {
             escreva("Acertou o navio!\n")
+            tiros = tiros - 1
         }
         senao
         {     	
         	  matriz[linha][coluna] = 'A'
             escreva("Água! Você errou.\n")
+             tiros = tiros - 1
         }
+	   }senao se(tiros == 0){
+	   	escreva("voce perdeu")
+	   	u.aguarde(2000)
+	   	voltar_menu()
+	   }
 
         se(matriz[sorteio_l][sorteio_c] == 'X' e matriz[sorteio_l2][sorteio_c2] == 'X' e matriz[sorteio_l3][sorteio_c3] == 'X'){
         	para(i = 0; i < 4; i++){
@@ -136,12 +140,15 @@ programa
         	pare
         }
         u.aguarde(2000)
+		
         
 	}enquanto(numero != 0 ou matriz[sorteio_l][sorteio_c] == 'X' e matriz[sorteio_l2][sorteio_c2] == 'X' e matriz[sorteio_l3][sorteio_c3] == 'X')
 		escreva("voltando ao menu")
 		u.aguarde(1000)
 		voltar_menu()
+    
 	pare
+        
 
 	caso 2:
 		limpa()
@@ -176,9 +183,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3811; 
+ * @POSICAO-CURSOR = 1279; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 25, 13, 6};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
