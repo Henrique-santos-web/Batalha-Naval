@@ -15,17 +15,13 @@ programa
 		escreva("3.voce tem 5 tiros\n\n")
 	}
 /////VOLTAR AO MENU/
-	funcao voltar_menu(){	
-		inteiro numero
-		escreva("voltar ao menu digite 10\n")
-		leia(numero)
-		se(numero == 10){
+	funcao voltar_menu(){
 		limpa()			
        	menu()
-			
-		}senao{
-		
 		}
+//////TIROS////////
+	funcao tiros(){
+		
 	}
 //////MENU E JOGO//
 	funcao menu(){
@@ -150,14 +146,27 @@ programa
 	caso 2:
 		limpa()
 		regras()	
+		escreva("para voltar digite 0\n")
+		leia(numero)
+		se(numero == 0){
 		voltar_menu()
+		}senao{
+			faca{
+				limpa()
+				regras()	
+				escreva("para voltar digite 0\n")
+				leia(numero)
+			}enquanto(numero !=0)
+			voltar_menu()
+		}
 	pare
 
 	caso 0:
 		escreva("saiu")
 		pare
 	caso contrario:
-		escreva("erro")
+		escreva("erro\n")
+		voltar_menu()
 		pare
 	}
     }
@@ -167,7 +176,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 333; 
+ * @POSICAO-CURSOR = 3811; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
