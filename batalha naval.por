@@ -2,12 +2,17 @@ programa
 {
 
 	inclua biblioteca Util --> u
+	inclua biblioteca Matematica --> m
 	
 	funcao inicio(){
 	caracter matriz[4][4]
         inteiro linha, coluna
         inteiro i, j
         inteiro numero
+        inteiro sorteio_l,sorteio_c
+
+        sorteio_l = u.sorteia(0, 3)
+	   sorteio_c = u.sorteia(0, 3)
 
 		
         escreva("===    BATALHA NAVAL    ===\n")
@@ -17,26 +22,26 @@ programa
         escreva("=== DIGITE 0 PARA SAIR  ===\n")
         leia(numero) 
 
-      
-     
-	escolha(numero){
-		
-        caso 1:
-
-        faca{
-        // Preencher matriz com água
-        limpa()
-        	para (i = 0; i < 4; i++)
+           	para (i = 0; i < 4; i++)
         {
             para (j = 0; j < 4; j++)
             {
-                matriz[i][j] = '~'
-                escreva(matriz[i][j])
-                escreva(" ")
-                
+                matriz[i][j] = '~'         
             }
-		escreva("\n")
-        }
+        }     
+	escolha(numero){
+		
+        caso 1:
+        faca{
+        // Preencher matriz com água
+        limpa()
+        para(i = 0; i < 4; i++){
+			para(j = 0; j < 4; j++){
+				escreva(matriz[i][j])
+				escreva(" ")
+			}
+			escreva("\n")
+			}
         escreva("Digite a linha do tiro (0 a 3): ")
         leia(linha)
 
@@ -44,9 +49,9 @@ programa
         leia(coluna)
 
         // Verificar tiro
-
-        se(linha == 2 e coluna == 1){
-        	matriz[2][1] = 'X'
+	
+        se(linha == sorteio_l  e coluna == sorteio_c){
+        	matriz[sorteio_l][sorteio_c] = 'X'
         }
 
         se(linha == 2 e coluna == 2){
@@ -61,21 +66,28 @@ programa
             escreva("Água! Você errou.\n")
         }
 
-        se(matriz[2][1] == 'X' e matriz[2][2] == 'X'){
+        se(matriz[sorteio_l][sorteio_c] == 'X' e matriz[2][2] == 'X'){
+        	para(i = 0; i < 4; i++){
+			para(j = 0; j < 4; j++){
+				escreva(matriz[i][j])
+				escreva(" ")
+			}
+			escreva("\n")
+			}
         	escreva("\nvoce ganhou\n")
         	escreva("todos os navios foram destruidos\n")
         	pare
         }
         u.aguarde(2000)
         
-	}enquanto(numero != 0 ou matriz[2][1] == 'X' e matriz[2][2] == 'X')
+	}enquanto(numero != 0 ou matriz[sorteio_l][sorteio_c] == 'X' e matriz[2][2] == 'X')
 	escreva("\nsaiu")
 	
 	pare
 
 	caso 2:
 	
-		escreva("=== REGRAS ===")
+		regras()
 
 	pare
 
@@ -94,6 +106,19 @@ programa
         
 	}
 
+	funcao regras(){
+		escreva("=== REGRAS ===")
+		escreva("\n1.acerte todos os navios para ganhar\n")
+		escreva("2.X marca os navios destruidos\n")
+		escreva("3.voce tem 5 tiros\n")
+		
+		
+	}
+
+	funcao voltar_menu(){
+		
+	}
+
 	
 	}
 
@@ -102,9 +127,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1768; 
+ * @POSICAO-CURSOR = 2334; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 7, 10, 6};
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 8, 10, 6}-{sorteio_l, 12, 16, 9}-{sorteio_c, 12, 26, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
