@@ -21,10 +21,29 @@ programa
 		}
 /////PLACAR////////
 	funcao placar(){
+		inteiro numero
 		inteiro jogador = 10
 		escreva("////PLACAR////\n")
 		para(inteiro i = 1;i <= jogador;i++){
 		escreva(i,".jogador: pontuação =\n")	
+		}
+		escreva("digite 0 para voltar ao menu ")
+		leia(numero)
+		se(numero == 0){
+			voltar_menu()
+		}senao{
+			faca{
+				limpa()
+				escreva("////PLACAR////\n")
+				para(inteiro i = 1;i <= jogador;i++){
+					escreva(i,".jogador: pontuação =\n")	
+					}
+					escreva("digite 0 para voltar ao menu ")
+						leia(numero)
+			}enquanto(numero != 0)
+			voltar_menu()
+				
+			
 		}
 	}
 //////MENU E JOGO//
@@ -205,9 +224,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 475; 
+ * @POSICAO-CURSOR = 731; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 33, 13, 6};
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 52, 13, 6};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
