@@ -19,6 +19,14 @@ programa
 		limpa()			
        	menu()
 		}
+/////PLACAR////////
+	funcao placar(){
+		inteiro jogador = 10
+		escreva("////PLACAR////\n")
+		para(inteiro i = 1;i <= jogador;i++){
+		escreva(i,".jogador: pontuação =\n")	
+		}
+	}
 //////MENU E JOGO//
 	funcao menu(){
 
@@ -29,35 +37,38 @@ programa
         inteiro sorteio_l,sorteio_c,sorteio_l2,sorteio_c2,sorteio_l3,sorteio_c3
         inteiro tiros = 5
        
-        sorteio_l = u.sorteia(0, 3)
-	   sorteio_c = u.sorteia(0, 3)
-	   sorteio_l2 = u.sorteia(0,3)
-	   sorteio_c2 = u.sorteia(0, 3)
-	   sorteio_l3 = u.sorteia(0, 3)
-	   sorteio_c3 = u.sorteia(0, 3)
-		
-	   escreva("===    BATALHA NAVAL    ===\n")
-        escreva("===        MENU         ===\n")
-        escreva("=== DIGITE 1 PARA JOGAR ===\n")
-   	   escreva("=== DIGITE 2 VER REGRAS ===\n")
-        escreva("=== DIGITE 0 PARA SAIR  ===\n")
-        leia(numero) 
+	        sorteio_l = u.sorteia(0, 3)
+		   sorteio_c = u.sorteia(0, 3)
+		   sorteio_l2 = u.sorteia(0,3)
+		   sorteio_c2 = u.sorteia(0, 3)
+		   sorteio_l3 = u.sorteia(0, 3)
+		   sorteio_c3 = u.sorteia(0, 3)
+				
+			   escreva("===    BATALHA NAVAL    ===\n")
+		        escreva("===        MENU         ===\n")
+		        escreva("=== DIGITE 1 PARA JOGAR ===\n")
+		   	   escreva("=== DIGITE 2 VER REGRAS ===\n")
+		   	   escreva("=== DIGITE 3 VER PLACAR ===\n")
+		        escreva("=== DIGITE 0 PARA SAIR  ===\n")
+		        leia(numero) 
 
 	   //CRIAR MAPA
            para (i = 0; i < 4; i++)
         	{
-           para (j = 0; j < 4; j++)
-          {
-                matriz[i][j] = '~'         
+	           para (j = 0; j < 4; j++)
+	          {
+                	matriz[i][j] = '~'         
           }
-        }          
+        } 
+                 
 	escolha(numero){
         caso 1:
-        faca{
+        	faca{
         // Preencher matriz com água
-        limpa()
-        escreva("===    BATALHA NAVAL    ===\n")
-        escreva("para voltar ao menu digite 10\n")
+	        limpa()
+	        escreva("===    BATALHA NAVAL    ===\n")
+	        escreva("para voltar ao menu digite 10\n")
+	        
         para(i = 0; i < 4; i++){
 			para(j = 0; j < 4; j++){
 				escreva(matriz[i][j])
@@ -66,63 +77,65 @@ programa
 			escreva("\n")
 			}
 		
-	   se(tiros > 0){	
+	se(tiros > 0){	
 	   	escreva("voce tem ",tiros," tiros\n")
-        escreva("Digite a linha do tiro (0 a 3): ")
-        leia(linha)
+		escreva("Digite a linha do tiro (0 a 3): ")
+       	leia(linha)
         
-		se(linha == 10){
-        	voltar_menu()
+	se(linha == 10){
+        	 voltar_menu()
         }
         
-        se(linha > 3){
+	se(linha > 3){
         	faca{
         		escreva("erro")
         		escreva("Digite a linha do tiro (0 a 3): ")
-        leia(linha)
+       		leia(linha)
         	}enquanto(linha > 3)
         }
+        
         escreva("Digite a coluna do tiro (0 a 3): ")
         leia(coluna)
         
-		se(linha == 10){
+	se(linha == 10){
         	voltar_menu()
         }
         	
-        se(coluna > 3){
-        	faca{
-        escreva("erro")		
-        escreva("Digite a coluna do tiro (0 a 3): ")
-        leia(coluna)
-        
+     se(coluna > 3){
+     	faca{
+			escreva("erro")		
+       		escreva("Digite a coluna do tiro (0 a 3): ")
+        		leia(coluna)
         	}enquanto(coluna > 3)
         }
+        
         // Verificar tiro
-        se(linha == sorteio_l  e coluna == sorteio_c){
+     se(linha == sorteio_l  e coluna == sorteio_c){
         	matriz[sorteio_l][sorteio_c] = 'X'
         }
 
-        se(linha == sorteio_l2 e coluna == sorteio_c2){
+     se(linha == sorteio_l2 e coluna == sorteio_c2){
         	matriz[sorteio_l2][sorteio_c2] = 'X'
         }
 	   
-	   se(linha == sorteio_l3 e coluna == sorteio_c3){
+	se(linha == sorteio_l3 e coluna == sorteio_c3){
 	   	matriz[sorteio_l3][sorteio_c3] = 'X'
 	   }
         
-        se (matriz[linha][coluna] == 'X')
+     se (matriz[linha][coluna] == 'X')
         {
             escreva("Acertou o navio!\n")
             tiros = tiros - 1
         }
-        senao
+    senao
         {     	
         	  matriz[linha][coluna] = 'A'
             escreva("Água! Você errou.\n")
-             tiros = tiros - 1
+            tiros = tiros - 1
         }
+        
 	   }senao se(tiros == 0){
-	   	escreva("voce perdeu")
+		escreva("voce perdeu")
 	   	u.aguarde(2000)
 	   	voltar_menu()
 	   }
@@ -135,8 +148,9 @@ programa
 			}
 			escreva("\n")
 			}
-        	escreva("\nvoce ganhou\n")
-        	escreva("todos os navios foram destruidos\n")
+			
+        		escreva("\nvoce ganhou\n")
+        		escreva("todos os navios foram destruidos\n")
         	pare
         }
         u.aguarde(2000)
@@ -146,35 +160,43 @@ programa
 		escreva("voltando ao menu")
 		u.aguarde(1000)
 		voltar_menu()
-    
 	pare
         
 
 	caso 2:
 		limpa()
 		regras()	
-		escreva("para voltar digite 0\n")
-		leia(numero)
+			escreva("para voltar digite 0\n")
+			leia(numero)
+			
 		se(numero == 0){
-		voltar_menu()
-		}senao{
+			voltar_menu()
+		}
+		senao
+		{
 			faca{
 				limpa()
 				regras()	
 				escreva("para voltar digite 0\n")
 				leia(numero)
-			}enquanto(numero !=0)
-			voltar_menu()
+		}enquanto(numero !=0)
+		voltar_menu()
 		}
+	pare
+
+	caso 3:
+	placar()
+
 	pare
 
 	caso 0:
 		escreva("saiu")
-		pare
+	pare
+	
 	caso contrario:
 		escreva("erro\n")
 		voltar_menu()
-		pare
+	pare
 	}
     }
    }
@@ -183,9 +205,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1279; 
+ * @POSICAO-CURSOR = 475; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 25, 13, 6};
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 33, 13, 6};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
