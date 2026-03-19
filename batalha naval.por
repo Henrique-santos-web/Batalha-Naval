@@ -9,10 +9,15 @@ programa
         inteiro linha, coluna
         inteiro i, j
         inteiro numero
-        inteiro sorteio_l,sorteio_c
+        inteiro sorteio_l,sorteio_c,sorteio_l2,sorteio_c2,sorteio_l3,sorteio_c3
+        
 
         sorteio_l = u.sorteia(0, 3)
 	   sorteio_c = u.sorteia(0, 3)
+	   sorteio_l2 = u.sorteia(0,3)
+	   sorteio_c2 = u.sorteia(0, 3)
+	   sorteio_l3 = u.sorteia(0, 3)
+	   sorteio_c3 = u.sorteia(0, 3)
 
 		
         escreva("===    BATALHA NAVAL    ===\n")
@@ -54,19 +59,25 @@ programa
         	matriz[sorteio_l][sorteio_c] = 'X'
         }
 
-        se(linha == 2 e coluna == 2){
-        	matriz[2][2] = 'X'
+        se(linha == sorteio_l2 e coluna == sorteio_c2){
+        	matriz[sorteio_l2][sorteio_c2] = 'X'
         }
+	   
+	   se(linha == sorteio_l3 e coluna == sorteio_c3){
+	   	matriz[sorteio_l3][sorteio_c3] = 'X'
+	   }
+        
         se (matriz[linha][coluna] == 'X')
         {
             escreva("Acertou o navio!\n")
         }
         senao
-        {
+        {     	
+        	  matriz[linha][coluna] = 'A'
             escreva("Água! Você errou.\n")
         }
 
-        se(matriz[sorteio_l][sorteio_c] == 'X' e matriz[2][2] == 'X'){
+        se(matriz[sorteio_l][sorteio_c] == 'X' e matriz[sorteio_l2][sorteio_c2] == 'X' e matriz[sorteio_l3][sorteio_c3] == 'X'){
         	para(i = 0; i < 4; i++){
 			para(j = 0; j < 4; j++){
 				escreva(matriz[i][j])
@@ -80,7 +91,7 @@ programa
         }
         u.aguarde(2000)
         
-	}enquanto(numero != 0 ou matriz[sorteio_l][sorteio_c] == 'X' e matriz[2][2] == 'X')
+	}enquanto(numero != 0 ou matriz[sorteio_l][sorteio_c] == 'X' e matriz[sorteio_l2][sorteio_c2] == 'X' e matriz[sorteio_l3][sorteio_c3] == 'X')
 	escreva("\nsaiu")
 	
 	pare
@@ -127,7 +138,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2334; 
+ * @POSICAO-CURSOR = 2455; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {matriz, 8, 10, 6}-{sorteio_l, 12, 16, 9}-{sorteio_c, 12, 26, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
