@@ -40,6 +40,7 @@ programa
         faca{
         // Preencher matriz com água
         limpa()
+        escreva("===    BATALHA NAVAL    ===\n")
         para(i = 0; i < 4; i++){
 			para(j = 0; j < 4; j++){
 				escreva(matriz[i][j])
@@ -49,9 +50,24 @@ programa
 			}
         escreva("Digite a linha do tiro (0 a 3): ")
         leia(linha)
+        se(linha > 3){
+        	faca{
+        		escreva("erro")
+        		escreva("Digite a linha do tiro (0 a 3): ")
+        leia(linha)
+        	}enquanto(linha > 3)
+        }
 
         escreva("Digite a coluna do tiro (0 a 3): ")
         leia(coluna)
+        se(coluna > 3){
+        	faca{
+        escreva("erro")		
+        escreva("Digite a coluna do tiro (0 a 3): ")
+        leia(coluna)
+        
+        	}enquanto(coluna > 3)
+        }
 
         // Verificar tiro
 	
@@ -138,9 +154,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2455; 
+ * @POSICAO-CURSOR = 1601; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 8, 10, 6}-{sorteio_l, 12, 16, 9}-{sorteio_c, 12, 26, 9};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
