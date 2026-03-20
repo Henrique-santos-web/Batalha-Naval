@@ -4,7 +4,7 @@ programa
 	inclua biblioteca Util --> u
 	inclua biblioteca Matematica --> m
 	inteiro jogador = 0
-	inteiro pontuacaos = 0
+	inteiro pontuacaos[100]
 
 /////JOGO///////////	
 	funcao inicio(){
@@ -28,7 +28,7 @@ programa
 		inteiro numero
 		escreva("////PLACAR////\n")
 		para(inteiro i = 1;i <= jogador;i++){
-		escreva(i,".jogador: pontuação = ",pontuacaos,"\n")	
+		escreva(i,". jogador: pontuação = ", pontuacaos[i-1], "\n")
 		}
 		escreva("digite 0 para voltar ao menu ")
 		leia(numero)
@@ -39,7 +39,7 @@ programa
 				limpa()
 				escreva("////PLACAR////\n")
 				para(inteiro i = 1;i <= jogador;i++){
-					escreva(i,".jogador: pontuação = ",pontuacaos,"\n")	
+					escreva(i,". jogador: pontuação = ", pontuacaos[i-1], "\n")
 					}
 					escreva("digite 0 para voltar ao menu ")
 					
@@ -174,8 +174,8 @@ programa
 			}
 			escreva("\n")
 			}
+			pontuacaos[jogador] = 5 - tiros
 			jogador = jogador + 1
-			pontuacaos = 5 - tiros
         		escreva("\nvoce ganhou\n")
         		escreva("todos os navios foram destruidos\n")
         	pare
@@ -232,9 +232,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1076; 
+ * @POSICAO-CURSOR = 4289; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 59, 13, 6}-{sorteio_l, 64, 16, 9}-{sorteio_c, 64, 26, 9}-{sorteio_l2, 64, 36, 10}-{sorteio_c2, 64, 47, 10}-{sorteio_l3, 64, 58, 10}-{sorteio_c3, 64, 69, 10};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
