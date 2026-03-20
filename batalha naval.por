@@ -3,6 +3,9 @@ programa
 
 	inclua biblioteca Util --> u
 	inclua biblioteca Matematica --> m
+	inteiro jogador = 0
+	inteiro pontuacaos = 0
+
 /////JOGO///////////	
 	funcao inicio(){
 		menu()		
@@ -21,11 +24,11 @@ programa
 		}
 /////PLACAR////////
 	funcao placar(){
+		
 		inteiro numero
-		inteiro jogador = 10
 		escreva("////PLACAR////\n")
 		para(inteiro i = 1;i <= jogador;i++){
-		escreva(i,".jogador: pontuação =\n")	
+		escreva(i,".jogador: pontuação = ",pontuacaos,"\n")	
 		}
 		escreva("digite 0 para voltar ao menu ")
 		leia(numero)
@@ -36,15 +39,19 @@ programa
 				limpa()
 				escreva("////PLACAR////\n")
 				para(inteiro i = 1;i <= jogador;i++){
-					escreva(i,".jogador: pontuação =\n")	
+					escreva(i,".jogador: pontuação = ",pontuacaos,"\n")	
 					}
 					escreva("digite 0 para voltar ao menu ")
+					
 						leia(numero)
 			}enquanto(numero != 0)
 			voltar_menu()
-				
-			
 		}
+	}
+//////PONTUAÇÃO////
+	funcao pontuacao(){
+		
+			
 	}
 //////MENU E JOGO//
 	funcao menu(){
@@ -52,9 +59,9 @@ programa
 	   caracter matriz[4][4]
         inteiro linha, coluna
         inteiro i, j
+        inteiro tiros = 5
         inteiro numero
         inteiro sorteio_l,sorteio_c,sorteio_l2,sorteio_c2,sorteio_l3,sorteio_c3
-        inteiro tiros = 5
        
 	        sorteio_l = u.sorteia(0, 3)
 		   sorteio_c = u.sorteia(0, 3)
@@ -167,7 +174,8 @@ programa
 			}
 			escreva("\n")
 			}
-			
+			jogador = jogador + 1
+			pontuacaos = 5 - tiros
         		escreva("\nvoce ganhou\n")
         		escreva("todos os navios foram destruidos\n")
         	pare
@@ -224,9 +232,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 731; 
+ * @POSICAO-CURSOR = 1076; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 52, 13, 6};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
