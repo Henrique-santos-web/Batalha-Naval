@@ -26,6 +26,7 @@ programa
 	funcao placar(){
 		
 		inteiro numero
+		limpa()
 		escreva("////PLACAR////\n")
 		para(inteiro i = 1;i <= jogador;i++){
 		escreva(i,". jogador: pontuação = ", pontuacaos[i-1], "\n")
@@ -47,11 +48,6 @@ programa
 			}enquanto(numero != 0)
 			voltar_menu()
 		}
-	}
-//////PONTUAÇÃO////
-	funcao pontuacao(){
-		
-			
 	}
 //////MENU E JOGO//
 	funcao menu(){
@@ -232,9 +228,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4289; 
+ * @POSICAO-CURSOR = 1057; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {matriz, 59, 13, 6}-{sorteio_l, 64, 16, 9}-{sorteio_c, 64, 26, 9}-{sorteio_l2, 64, 36, 10}-{sorteio_c2, 64, 47, 10}-{sorteio_l3, 64, 58, 10}-{sorteio_c3, 64, 69, 10};
+ * @SIMBOLOS-INSPECIONADOS = {matriz, 55, 13, 6}-{sorteio_l, 60, 16, 9}-{sorteio_c, 60, 26, 9}-{sorteio_l2, 60, 36, 10}-{sorteio_c2, 60, 47, 10}-{sorteio_l3, 60, 58, 10}-{sorteio_c3, 60, 69, 10};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
